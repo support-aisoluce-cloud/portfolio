@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Three.js for interactive 3D model viewer -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AISOLUCE | AI-First Full-Stack Engineer & Vibe Coder</title>
+    <meta name="description" content="Portfolio de Vibe Coder sénior et AI Developer. Spécialiste de l'orchestration LLM, des bots Web3/DeFi, des automatisations MCP et du motion design augmenté par l'IA.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="AISOLUCE | AI-First Full-Stack Engineer & Vibe Coder">
+    <meta property="og:description" content="Portfolio de Vibe Coder sénior et AI Developer. Spécialiste de l'orchestration LLM, des bots Web3/DeFi, des automatisations MCP et du motion design augmenté par l'IA.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="assets/og-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AISOLUCE | AI-First Full-Stack Engineer & Vibe Coder">
+    <meta name="twitter:description" content="Portfolio de Vibe Coder sénior et AI Developer. Spécialiste de l'orchestration LLM, des bots Web3/DeFi, des automatisations MCP et du motion design augmenté par l'IA.">
+    <meta name="twitter:image" content="assets/og-card.jpg">
+    <!-- Inline SVG favicon: lime ">" on near-black -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%2307080a'/%3E%3Cpath%20d='M11%2010l7%206-7%206'%20fill='none'%20stroke='%23c5ff68'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Three.js CDN -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+        }
+    }
+    </script>
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+    <!-- Top Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">></span> AISOLUCE
+            </a>
+            <nav class="nav" id="primaryNav">
+                <a href="#proof" class="nav-link" data-i18n="nav.proof">Preuves</a>
+                <a href="#automations" class="nav-link" data-i18n="nav.auto">Automatisations</a>
+                <a href="#console" class="nav-link" data-i18n="nav.terminal">Terminal</a>
+                <a href="#dashboard" class="nav-link" data-i18n="nav.bots">Active Bots</a>
+                <a href="#solutions" class="nav-link" data-i18n="nav.saas">SaaS & Tools</a>
+                <a href="#mcp" class="nav-link" data-i18n="nav.mcp">MCP Connectors</a>
+                <a href="#creative" class="nav-link" data-i18n="nav.creative">Creative AI</a>
+                <a href="#motion" class="nav-link" data-i18n="nav.motion">Motion Design</a>
+                <a href="#gallery3d" class="nav-link" data-i18n="nav.gallery3d">3D Assets</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-switcher" id="langSwitcher"></div>
+                <div class="status-badge">
+                    <span class="pulse-indicator"></span>
+                    <span class="status-text" data-i18n="status.available">Remote · sur sélection</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="top">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <a href="Certificat_Claude.pdf" target="_blank" class="cert-badge animate-fade-in" style="cursor: pointer; text-decoration: none;">
+                    <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 11l2 2 4-4"/>
+                    </svg>
+                    <span>Claude Code in Action Certified</span>
+                </a>
+
+                <div class="hero-identity animate-fade-in">
+                    <div class="hero-avatar" aria-hidden="true">K</div>
+                    <div class="hero-id-meta">
+                        <span class="hero-name">Kylian</span>
+                        <span class="hero-role" data-i18n="hero.role">Ingénieur AI-first indépendant · Remote</span>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://aisoluce.cc" target="_blank" rel="noopener" class="social-link" aria-label="aisoluce.cc" title="aisoluce.cc">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://portfolio-aisoluce.netlify.app/" target="_blank" rel="noopener" class="social-link" aria-label="Motion portfolio" title="Motion portfolio">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </a>
+                        <a href="mailto:support-aisoluce@aisoluce.com" class="social-link" aria-label="Email" title="Email">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <h1 class="hero-title animate-slide-up" data-i18n-html="hero.title">
+                    Orchestrer l'IA pour créer des <span class="text-gradient">solutions réelles</span> à la vitesse de la pensée.
+                </h1>
+
+                <p class="hero-subtitle animate-slide-up" data-i18n="hero.subtitle">
+                    Partenaire technique indépendant, AI-first full-stack. J'expédie des produits IA, des agents et des automatisations de bout en bout, du prototype à la production, intégré à votre équipe en remote.
+                </p>
+
+                <div class="hero-actions animate-slide-up">
+                    <a href="#console" class="btn btn-primary">
+                        <span data-i18n="hero.btn_terminal">Lancer le Terminal</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="mailto:support-aisoluce@aisoluce.com" class="btn btn-secondary" data-i18n="hero.btn_contact">Me Contacter</a>
+                </div>
+            </div>
+
+            <!-- Terminal Simulator Wrapper -->
+            <div class="hero-terminal animate-fade-in" id="console">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">vps-node-01:~ - aisoluce-core</div>
+                    <div class="terminal-badge">VPS ACTIVE</div>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line system-msg">Initializing AISOLUCE Core Dashboard...</div>
+                    <div class="terminal-line system-msg">Loading local LLM configurations...</div>
+                    <div class="terminal-line system-msg">Connecting to Solana devnet node...</div>
+                    <div class="terminal-line success-msg">[SUCCESS] 3 background bots initialized.</div>
+                    <div class="terminal-line prompt"><span class="prompt-user">guest@aisoluce</span>:<span class="prompt-path">~</span>$ help</div>
+                    <div class="terminal-line output">Commandes disponibles :
+  • <span class="cmd-highlight">stats</span>       - État des bots de trading &amp; arbitrage
+  • <span class="cmd-highlight">saas</span>        - Détails de aisoluce.cc (Nano Banana + Stripe)
+  • <span class="cmd-highlight">automation</span>  - Pipeline de lead gen &amp; auto-emailing
+  • <span class="cmd-highlight">mcp</span>         - Configuration des MCPs financiers
+  • <span class="cmd-highlight">clear</span>       - Effacer la console</div>
+                    <div class="terminal-line prompt-active"><span class="prompt-user">guest@aisoluce</span>:<span class="prompt-path">~</span>$ <span class="typed-text"></span><span class="cursor">|</span></div>
+                </div>
+                <div class="terminal-footer">
+                    <input type="text" id="terminalInput" placeholder="Entrez une commande (ex: stats, saas, automation)..." data-i18n-placeholder="terminal.placeholder" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof & Signals Section -->
+    <section class="proof-section reveal" id="proof">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="proof.tag">// PREUVES &amp; SIGNAUX</div>
+                <h2 class="section-title" data-i18n="proof.title">Pourquoi travailler avec moi</h2>
+                <p class="section-subtitle" data-i18n="proof.subtitle">Des signaux vérifiables, pas des promesses.</p>
+            </div>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <span class="proof-stat" data-i18n="proof.c1_stat">LIVE</span>
+                    <span class="proof-label" data-i18n="proof.c1_label">Démo SaaS en ligne</span>
+                    <span class="proof-sub" data-i18n="proof.c1_sub">aisoluce.cc, intégration Stripe fonctionnelle</span>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-stat" data-i18n="proof.c2_stat">Certifié</span>
+                    <span class="proof-label" data-i18n="proof.c2_label">Claude Code in Action</span>
+                    <span class="proof-sub" data-i18n="proof.c2_sub">Certification officielle Anthropic</span>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-stat" data-i18n="proof.c3_stat">6 langues</span>
+                    <span class="proof-label" data-i18n="proof.c3_label">Site multilingue</span>
+                    <span class="proof-sub" data-i18n="proof.c3_sub">i18n maison · 0 framework · 0 build</span>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-stat" data-i18n="proof.c4_stat">Full-stack</span>
+                    <span class="proof-label" data-i18n="proof.c4_label">LLM · Web3 · CGI · Auto</span>
+                    <span class="proof-sub" data-i18n="proof.c4_sub">De l'agent IA au rendu 3D temps réel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autonomous agent systems -->
+    <section class="auto-section reveal" id="automations">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="auto.tag">// AGENTS AUTONOMES EN PRODUCTION</div>
+                <h2 class="section-title" data-i18n="auto.title">Des agents qui tournent sans moi</h2>
+                <p class="section-subtitle" data-i18n="auto.subtitle">Plus de 20 routines Claude Code planifiées, qui orchestrent des agents en parallèle : collecte, rédaction, vérification, livraison. Avec garde-fous et zéro donnée inventée.</p>
+            </div>
+
+            <div class="auto-pipeline">
+                <span class="auto-pipe-title" data-i18n="auto.pipe_title">Pipeline BILLIONS · Private Intelligence Brief hebdomadaire</span>
+                <div class="auto-steps">
+                    <div class="auto-step"><span class="auto-step-n">1</span><span data-i18n="auto.s1">Collecte · 8 agents</span></div>
+                    <div class="auto-step"><span class="auto-step-n">2</span><span data-i18n="auto.s2">Rédaction</span></div>
+                    <div class="auto-step auto-step-gate"><span class="auto-step-n">3</span><span data-i18n="auto.s3">Vérification · GATE</span></div>
+                    <div class="auto-step"><span class="auto-step-n">4</span><span data-i18n="auto.s4">Livraison PDF</span></div>
+                    <div class="auto-step"><span class="auto-step-n">5</span><span data-i18n="auto.s5">Prospection</span></div>
+                </div>
+            </div>
+
+            <div class="auto-grid">
+                <div class="auto-card border-gradient">
+                    <h3 class="auto-card-title" data-i18n="auto.c1_title">Private Intelligence Brief (BILLIONS)</h3>
+                    <p class="auto-card-desc" data-i18n="auto.c1_desc">Chaque semaine et par profil : 8 agents de recherche tournent en parallèle (fiscal, réglementaire UE, registres, private equity, immobilier, banque suisse, réputation, échéances). Un agent rédige le brief personnalisé, un agent vérificateur indépendant recoupe chaque alerte critique avec une seconde source et peut bloquer la livraison. PDF confidentiel et brouillon générés. Multi-agents, planifié, humain dans la boucle.</p>
+                    <div class="auto-example" data-i18n="auto.c1_ex">Exemple (persona fictive Monsieur A., entrepreneur, résident suisse, holding au Luxembourg) : 8 alertes critiques recoupées, 14 points de vigilance, 5 opportunités, 7 échéances à 30 jours, chacune sourcée par une URL primaire.</div>
+                    <a class="auto-pdf-link" href="assets/BILLIONS_PIB_exemple.pdf" target="_blank" rel="noopener" data-i18n="auto.c1_pdf">Voir un brief d'exemple (PDF)</a>
+                </div>
+                <div class="auto-card border-gradient">
+                    <h3 class="auto-card-title" data-i18n="auto.c2_title">Moteur d'outreach AISOLUCE</h3>
+                    <p class="auto-card-desc" data-i18n="auto.c2_desc">Environ 15 routines qui couvrent tout le cycle d'acquisition : génération de leads multi-agents, analyse du sentiment et de l'intention des réponses, relances graduées, nurturing, relances de factures, rapport hebdomadaire, et un watchdog de délivrabilité (DMARC, quotas, gouverneur de volume automatique).</p>
+                </div>
+                <div class="auto-card border-gradient">
+                    <h3 class="auto-card-title" data-i18n="auto.c3_title">Agent de candidatures</h3>
+                    <p class="auto-card-desc" data-i18n="auto.c3_desc">L'agent qui m'aide à décrocher un poste : il source des offres, vérifie les emails, personnalise et envoie, tout seul, le matin aux États-Unis. Ce message vous est probablement parvenu grâce à lui.</p>
+                </div>
+            </div>
+
+            <div class="auto-stats">
+                <div class="auto-stat"><span class="auto-stat-n" data-i18n="auto.stat1">20+</span><span class="auto-stat-l" data-i18n="auto.stat1l">routines planifiées en production</span></div>
+                <div class="auto-stat"><span class="auto-stat-n" data-i18n="auto.stat2">8</span><span class="auto-stat-l" data-i18n="auto.stat2l">agents parallèles par brief</span></div>
+                <div class="auto-stat"><span class="auto-stat-n" data-i18n="auto.stat3">GATE</span><span class="auto-stat-l" data-i18n="auto.stat3l">vérification bloquante, zéro fabrication</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Systems Dashboard -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="dashboard.tag">// BOTS DE TRADING &amp; VPS</div>
+                <h2 class="section-title" data-i18n="dashboard.title">Systèmes Autonomes</h2>
+                <p class="section-subtitle" data-i18n="dashboard.subtitle">Agents IA tournant en continu sur VPS, connectés via MCP Notion pour le tracking de données et le monitoring temps réel sur Telegram. Phase R&amp;D active : l'objectif est la maîtrise technique de l'infrastructure, pas le profit immédiat.</p>
+                <span class="sim-tag"><span class="dot-sim"></span><span data-i18n="sim.tag">SIMULATION INTERACTIVE · BAC À SABLE R&amp;D</span></span>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Bot 1 - Solana Flash Loan Arbitrage -->
+                <div class="dashboard-card border-gradient">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+                            <div>
+                                <h3 class="card-title">Solana Flash Loan Bot</h3>
+                                <span class="card-subtitle">Rust, Anchor &amp; Jupiter SDK · MCP Notion</span>
+                            </div>
+                        </div>
+                        <span class="status-indicator online">ONLINE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot1.l1">Dexes surveillés</span>
+                            <span class="metric-value font-code">Jupiter, Raydium, Orca</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot1.l2">Contrats Anchor</span>
+                            <span class="metric-value font-code text-lime">Active (verified)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot1.l3">Volume Flash Loan</span>
+                            <span class="metric-value font-code">1 250 SOL / txn</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot1.l4">Spreads validés</span>
+                            <span class="metric-value font-code">0.42% minimum</span>
+                        </div>
+                        <!-- Log excerpt mimicking user screenshot -->
+                        <div class="card-terminal-preview font-code">
+                            [02:10:12] Monitoring Jupiter Price Route...<br>
+                            [02:10:15] Flash Loan opportunity detected: 100 SOL<br>
+                            [02:10:16] Executing swap via Anchor contract: Success!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot 2 - Prop Firm Challenge -->
+                <div class="dashboard-card border-gradient">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+                            <div>
+                                <h3 class="card-title">Prop Firm Quest MT5</h3>
+                                <span class="card-subtitle">Metatrader 5 Challenge 5K · MCP Notion</span>
+                            </div>
+                        </div>
+                        <span class="status-indicator online">ONLINE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot2.l1">Balance du compte</span>
+                            <span class="metric-value font-code text-soft">Paper (sandbox)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot2.l2">Phase</span>
+                            <span class="metric-value font-code text-amber">R&amp;D (Backtesting)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot2.l3">Trades exécutés</span>
+                            <span class="metric-value font-code">113 (active)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot2.l4">Objectif (+8%)</span>
+                            <span class="metric-value font-code">0% [◽◽◽◽◽◽◽◽◽]</span>
+                        </div>
+                        <div class="card-terminal-preview font-code">
+                            [02:34:01] Point marché: Challenge 5k (+0.3R jour, 1 pos)<br>
+                            [02:34:03] Statut marché: Calme<br>
+                            [02:34:05] Stratégie: Attente de signaux forts sur EURUSD
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot 3 - Mission Double Compound -->
+                <div class="dashboard-card border-gradient">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+                            <div>
+                                <h3 class="card-title">Mission Double 100K</h3>
+                                <span class="card-subtitle">Gestion Compound MT5 · MCP Notion</span>
+                            </div>
+                        </div>
+                        <span class="status-indicator online">ONLINE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot3.l1">Balance Courante</span>
+                            <span class="metric-value font-code text-soft">Paper (sandbox)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot3.l2">Stratégie en cours</span>
+                            <span class="metric-value font-code">Niveau 1 (Mise 1.17%)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot3.l3">Phase</span>
+                            <span class="metric-value font-code text-amber">R&amp;D (Optimisation)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot3.l4">Dernier Trade</span>
+                            <span class="metric-value font-code text-lime">TP atteint (sim)</span>
+                        </div>
+                        <div class="card-terminal-preview font-code">
+                            [02:13:01] Sell EURUSD @ 1.1353 (EMA Offset)<br>
+                            [02:13:12] Pyramiding EURUSD -> +8.9 lots au BE<br>
+                            [02:36:00] EURUSD +1R atteint -> TP 50% encaissé
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot 4 - Polymarket Prediction Bot -->
+                <div class="dashboard-card border-gradient">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+                            <div>
+                                <h3 class="card-title">Polymarket Bot</h3>
+                                <span class="card-subtitle">Arbitrage Marchés Prédictifs · MCP Notion</span>
+                            </div>
+                        </div>
+                        <span class="status-indicator online">ONLINE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot4.l1">Marchés scannés</span>
+                            <span class="metric-value font-code">Politique, Macro, Tech</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot4.l2">Source de données</span>
+                            <span class="metric-value font-code">LLM local + Flux d'actu</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot4.l3">Arbitrages détectés</span>
+                            <span class="metric-value font-code text-lime">12 opportunités</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label" data-i18n="bot4.l4">VPS State</span>
+                            <span class="metric-value font-code">Sync OK (uptime 99%)</span>
+                        </div>
+                        <div class="card-terminal-preview font-code">
+                            [03:12:00] Scanning Polymarket orderbooks...<br>
+                            [03:12:05] Odd gap found: Contract US_Election (spread: 1.8%)<br>
+                            [03:12:06] Hedges placed via Web3 API. Executed!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SaaS & Automations Section -->
+    <section class="solutions-section" id="solutions">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="solutions.tag">// SAAS &amp; AUTOMATISATIONS</div>
+                <h2 class="section-title" data-i18n="solutions.title">Produits &amp; Micro-Agences</h2>
+                <p class="section-subtitle" data-i18n="solutions.subtitle">Monétiser et automatiser les tunnels d'acquisition grâce aux modèles d'IA.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- Solution 1 -->
+                <div class="solution-card">
+                    <div class="solution-visual no-padding">
+                        <div class="saas-preview-cc">
+                            <div class="saas-header-mock">
+                                <div class="saas-logo-mock-wrapper">
+                                    <span class="saas-logo-mock-text">aisoluce</span>
+                                    <span class="saas-badge-mock-pro">PRO</span>
+                                </div>
+                                <div class="saas-nav-mock">
+                                    <span class="saas-lang-mock">EN <span class="arrow-down">▾</span></span>
+                                    <span class="saas-btn-mock-signin">Sign in</span>
+                                    <span class="saas-btn-mock-try">Try now</span>
+                                </div>
+                            </div>
+                            <div class="saas-hero-mock" style="background-image: linear-gradient(180deg, rgba(7, 8, 10, 0.4) 0%, rgba(7, 8, 10, 0.8) 100%), url('assets/aisoluce_bg.png');">
+                                <h4 class="saas-title-mock">ONE CANVAS.<br>EVERY<br>WORKFLOW.</h4>
+                                <p class="saas-subtitle-mock">Analyze your inspirations, generate in HD, and publish to Instagram in seconds. The ultimate infrastructure for creators.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol1.title">aisoluce.cc : micro-SaaS de génération d'images</h3>
+                        <p class="solution-description" data-i18n="sol1.desc">
+                            Plateforme de génération d'images propulsée par le modèle Nano Banana. Intègre un modèle de tarification à la marge avec un système de paiement Stripe fluide pour monétiser chaque génération.
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol1.f1">Intégration API Nano Banana</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol1.f2">Checkout Stripe &amp; Webhooks</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol1.f3">Interface utilisateur ultra-rapide</span></li>
+                        </ul>
+                        <div class="solution-links">
+                            <a href="https://aisoluce.cc" target="_blank" class="btn btn-small btn-primary-outline" data-i18n="sol1.btn">Visiter le site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 2 -->
+                <div class="solution-card reverse">
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol2.title">Lead Scraper &amp; Emailing Automatisé</h3>
+                        <p class="solution-description" data-i18n="sol2.desc">
+                            Développement de routines autonomes avec Claude qui analysent le web pour identifier des leads ciblés dans plusieurs secteurs. Le pipeline filtre, qualifie puis envoie automatiquement des emails debouncés hautement personnalisés pour l'activité de Motion Design.
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol2.f1">Routines de scraping sémantique avec Claude</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol2.f2">Qualification automatique de leads</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol2.f3">Intégration d'APIs d'envoi et de debouncing</span></li>
+                        </ul>
+                    </div>
+                    <div class="solution-visual">
+                        <div class="pipeline-visual">
+                            <div class="pipe-step font-code">
+                                <div class="step-num">01</div>
+                                <div>Scraping Claude</div>
+                            </div>
+                            <div class="pipe-arrow">↓</div>
+                            <div class="pipe-step font-code active">
+                                <div class="step-num">02</div>
+                                <div>Qualif. Lead AI</div>
+                            </div>
+                            <div class="pipe-arrow">↓</div>
+                            <div class="pipe-step font-code">
+                                <div class="step-num">03</div>
+                                <div>Envoi Debounced</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 3 -->
+                <div class="solution-card">
+                    <div class="solution-visual">
+                        <div class="blotato-visual">
+                            <div class="blotato-bubble font-code">
+                                <span>Input: Idea</span>
+                            </div>
+                            <div class="blotato-flow">
+                                <span class="flow-agent">Claude</span>
+                                <span class="flow-plus">+</span>
+                                <span class="flow-agent">Higgsfield</span>
+                                <span class="flow-plus">+</span>
+                                <span class="flow-agent">Blotato</span>
+                            </div>
+                            <div class="blotato-bubble success font-code">
+                                <span>Output: Auto-Publish Socials</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol3.title">Autopilot de Création &amp; Publication de Contenu</h3>
+                        <p class="solution-description" data-i18n="sol3.desc">
+                            Un pipeline 100% autonome qui génère du contenu de marque (scripts rédigés par Claude, vidéos cinématiques générées via Higgsfield) et orchestre la publication automatique sur les réseaux sociaux via Blotato.
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol3.f1">Production de médias augmentée (Higgsfield)</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol3.f2">Scripts et angles d'attaque par IA</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol3.f3">Automatisation de la publication sur les réseaux</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Solution 4 (ShadowAudit - Go-based Smart Contract Auditor) -->
+                <div class="solution-card reverse">
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol4.title">ShadowAudit : auditeur de smart contracts</h3>
+                        <p class="solution-description" data-i18n="sol4.desc">
+                            Auditeur de sécurité automatisé écrit en Go. Le scanner sémantique inspecte le code source des contrats intelligents Solidity, détecte les vulnérabilités majeures (reentrancy, integer overflows, attaques flash loans) et transmet des alertes détaillées avec suggestions de correctifs.
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol4.f1">Scanner haute performance écrit en Go</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol4.f2">Détection de failles de sécurité courantes</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol4.f3">Rapports d'audits et alertes en temps réel</span></li>
+                        </ul>
+                    </div>
+                    <div class="solution-visual">
+                        <div class="saas-preview-cc">
+                            <div class="saas-header-mock">
+                                <div class="saas-logo-mock-wrapper">
+                                    <span class="saas-logo-mock-text" style="color: #a855f7;">ShadowAudit</span>
+                                    <span class="saas-badge-mock-pro" style="background: #a855f7; color: #fff;">GO</span>
+                                </div>
+                                <span class="saas-badge-mock" style="border-color: #a855f7; color: #a855f7;">ACTIVE</span>
+                            </div>
+                            <div class="card-terminal-preview font-code" style="height: 150px; margin: 15px; font-size: 10px; background: #06070a;">
+                                [ShadowAudit] Init scanning on Solidity source...<br>
+                                [scanner] Found contract: FlashLoanArbitrage.sol<br>
+                                [scanner] Running Reentrancy check... OK<br>
+                                <span class="text-red">[WARNING] Unchecked external call found at line 42!</span><br>
+                                [notifier] Building vulnerability report... Done<br>
+                                [sys] Scan completed: 1 Warning, 0 Errors.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 5 (Vapi Voice AI Telephony Client) -->
+                <div class="solution-card">
+                    <div class="solution-visual">
+                        <div class="pipeline-visual">
+                            <div class="pipe-step font-code active" style="width: 220px;">
+                                <div class="step-num">Vapi Call</div>
+                                <div>Appel Entrant/Sortant</div>
+                            </div>
+                            <div class="pipe-arrow" style="font-size: 20px;">↔</div>
+                            <div class="pipe-step font-code" style="width: 220px;">
+                                <div class="step-num">LLM Agent</div>
+                                <div>Claude Voice Handler</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol5.title">Vapi Voice Agent Client</h3>
+                        <p class="solution-description" data-i18n="sol5.desc">
+                            Développement de scripts d'orchestration pour des assistants vocaux basés sur l'API Vapi.ai (Python). Permet à Claude de répondre en temps réel au téléphone, de qualifier des leads commerciaux de façon interactive, de transcrire et d'analyser sémantiquement les retours clients.
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol5.f1">Client d'API de téléphonie Vapi (Python)</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol5.f2">Gestion des voix de synthèse &amp; transcription</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol5.f3">Qualifications interactives de prospects</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Solution 6 (ShadowPrompt: AI prompt-injection red-team agent) -->
+                <div class="solution-card reverse">
+                    <div class="solution-content">
+                        <h3 class="solution-title" data-i18n="sol6.title">ShadowPrompt : agent de red-teaming IA</h3>
+                        <p class="solution-description" data-i18n="sol6.desc">
+                            Agent autonome de red-teaming : un LLM génère, exécute et itère des attaques par prompt injection contre des systèmes IA cibles jusqu'à contourner leurs garde-fous. Validé sur le challenge Gandalf de Lakera, où l'agent a extrait les 8 mots de passe secrets (niveaux 1 à 8).
+                        </p>
+                        <ul class="solution-features">
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol6.f1">Génération &amp; itération automatique d'attaques par LLM</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol6.f2">8/8 niveaux Gandalf (Lakera) résolus, tous les mots de passe extraits</span></li>
+                            <li><span class="feat-bullet">></span> <span data-i18n="sol6.f3">Détection de jailbreaks &amp; de fuites de garde-fous</span></li>
+                        </ul>
+                    </div>
+                    <div class="solution-visual">
+                        <div class="saas-preview-cc">
+                            <div class="saas-header-mock">
+                                <div class="saas-logo-mock-wrapper">
+                                    <span class="saas-logo-mock-text" style="color: #c5ff68;">ShadowPrompt</span>
+                                    <span class="saas-badge-mock-pro" style="background: #c5ff68; color: #000;">AI</span>
+                                </div>
+                                <span class="saas-badge-mock" style="border-color: #c5ff68; color: #c5ff68;">8/8 CRACKED</span>
+                            </div>
+                            <div class="card-terminal-preview font-code" style="height: 170px; margin: 15px; font-size: 10px; background: #06070a;">
+                                [redteam] target: gandalf.lakera.ai<br>
+                                [agent] generating injection payloads...<br>
+                                [agent] L1-L6 bypassed (guardrails defeated)<br>
+                                [agent] L7 bypassed -&gt; secret extracted<br>
+                                <span class="text-lime">[agent] L8 (Gandalf the White) bypassed!</span><br>
+                                [result] 8/8 passwords extracted. Pipeline validated.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCP & Integrations Section -->
+    <section class="mcp-section" id="mcp">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="mcp.tag">// MODEL CONTEXT PROTOCOL</div>
+                <h2 class="section-title" data-i18n="mcp.title">MCP Connectors &amp; APIs</h2>
+                <p class="section-subtitle" data-i18n="mcp.subtitle">Étendre les capacités des LLMs en connectant Claude à des outils système et financiers.</p>
+            </div>
+
+            <div class="mcp-container border-gradient">
+                <div class="mcp-interactive-display">
+                    <div class="mcp-node node-claude">
+                        <div class="node-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></div>
+                        <div class="node-title">Claude Code</div>
+                        <div class="node-desc" data-i18n="mcp.node_claude_desc">AI Orchestrator</div>
+                    </div>
+                    <div class="mcp-connector-lines">
+                        <div class="mcp-line line-1" id="mcpLine1"></div>
+                        <div class="mcp-line line-2" id="mcpLine2"></div>
+                        <div class="mcp-line line-3" id="mcpLine3"></div>
+                        <div class="mcp-line line-4" id="mcpLine4"></div>
+                    </div>
+                    <div class="mcp-targets">
+                        <div class="mcp-target-node active" data-target="stripe">
+                            <span class="target-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></span>
+                            <span class="target-title">Stripe API</span>
+                        </div>
+                        <div class="mcp-target-node" data-target="notion">
+                            <span class="target-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></span>
+                            <span class="target-title">Notion MCP</span>
+                        </div>
+                        <div class="mcp-target-node" data-target="finance">
+                            <span class="target-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></span>
+                            <span class="target-title">Financial MCP</span>
+                        </div>
+                        <div class="mcp-target-node" data-target="system">
+                            <span class="target-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg></span>
+                            <span class="target-title">Local Tools MCP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mcp-details font-code" id="mcpDetails">
+                    <div class="details-title">Stripe API Connector</div>
+                    <p class="details-text">
+                        Permet à Claude de générer à la volée des liens de paiement Stripe, de suivre les facturations et d'interagir directement avec le tableau de bord financier lors de sessions interactives.
+                    </p>
+                    <div class="details-code">
+                        # server.py : MCP tool (Python / FastMCP)<br>
+                        @mcp.tool()<br>
+                        def create_payment_link(amount: int, currency: str = "usd",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: str = "") -> dict:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;link = stripe.PaymentLink.create(...)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return {"url": link.url, "id": link.id}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative AI & 3D Section -->
+    <section class="creative-section" id="creative">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="creative.tag">// CGI &amp; REAL-TIME 3D</div>
+                <h2 class="section-title" data-i18n="creative.title">Creative AI &amp; Game Engines</h2>
+                <p class="section-subtitle" data-i18n="creative.subtitle">Allier l'IA générative aux moteurs de rendu 3D temps réel.</p>
+            </div>
+
+            <div class="creative-grid">
+                <!-- Unreal Engine -->
+                <div class="creative-card">
+                    <div class="creative-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg></div>
+                    <h3 class="creative-card-title" data-i18n="creative.c1_title">Claude + Unreal Engine 5.8</h3>
+                    <p class="creative-card-desc" data-i18n="creative.c1_desc">
+                        Utilisation de Claude pour scripter des comportements et automatiser l'import/export de pipelines au sein d'Unreal Engine 5.8, créant des ponts fluides entre l'IA et la création d'environnements 3D en temps réel.
+                    </p>
+                </div>
+
+                <!-- Tripo3D -->
+                <div class="creative-card">
+                    <div class="creative-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+                    <h3 class="creative-card-title" data-i18n="creative.c2_title">Génération d'actifs 3D avec Tripo3D</h3>
+                    <p class="creative-card-desc" data-i18n="creative.c2_desc">
+                        Intégration d'outils d'IA générative de géométrie 3D pour accélérer la création d'assets optimisés. Modélisation rapide par prompts textuels pour alimenter les scènes CGI.
+                    </p>
+                </div>
+
+                <!-- Teaser to the motion design showreel section below -->
+                <div class="creative-card redirect border-gradient">
+                    <div class="creative-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
+                    <h3 class="creative-card-title" data-i18n="creative.c3_title">Showreel Motion Design</h3>
+                    <p class="creative-card-desc" data-i18n="creative.c3_desc">
+                        Films de marque haut de gamme, simulations physiques CGI et identités animées créés avec Higgsfield et After Effects.
+                    </p>
+                    <a href="#motion" class="btn btn-secondary btn-full">
+                        <span data-i18n="creative.c3_btn">Voir le showreel</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motion Design Showreel Section -->
+    <section class="motion-section" id="motion">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="motion.tag">// MOTION DESIGN &amp; CGI</div>
+                <h2 class="section-title" data-i18n="motion.title">Motion Design &amp; Films de Marque</h2>
+                <p class="section-subtitle" data-i18n="motion.subtitle">Films de marque haut de gamme, simulations physiques CGI et identités animées, produites avec Higgsfield, After Effects et des pipelines augmentés par l'IA. Cliquez pour lire en plein écran.</p>
+            </div>
+
+            <!-- Featured video -->
+            <div class="motion-featured">
+                <div class="motion-card motion-card-featured" data-video="assets/video/showreel_01.mp4" data-title-key="motion.v1">
+                    <video class="motion-video" muted loop playsinline preload="metadata" poster="assets/video/showreel_01.jpg">
+                        <source src="assets/video/showreel_01.mp4" type="video/mp4">
+                    </video>
+                    <span class="motion-badge" data-i18n="motion.featured">À LA UNE</span>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        <span class="motion-label" data-i18n="motion.v1">Film de marque vedette</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="motion-grid">
+                <div class="motion-card" data-video="assets/video/showreel_02.mp4" data-title-key="motion.v2">
+                    <video class="motion-video" muted loop playsinline preload="none" poster="assets/video/showreel_02.jpg">
+                        <source src="assets/video/showreel_02.mp4" type="video/mp4">
+                    </video>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="motion-label" data-i18n="motion.v2">Reel Cinématique</span>
+                    </div>
+                </div>
+                <div class="motion-card" data-video="assets/video/showreel_03.mp4" data-title-key="motion.v3">
+                    <video class="motion-video" muted loop playsinline preload="none" poster="assets/video/showreel_03.jpg">
+                        <source src="assets/video/showreel_03.mp4" type="video/mp4">
+                    </video>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="motion-label" data-i18n="motion.v3">Animation Produit</span>
+                    </div>
+                </div>
+                <div class="motion-card" data-video="assets/video/showreel_04.mp4" data-title-key="motion.v4">
+                    <video class="motion-video" muted loop playsinline preload="none" poster="assets/video/showreel_04.jpg">
+                        <source src="assets/video/showreel_04.mp4" type="video/mp4">
+                    </video>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="motion-label" data-i18n="motion.v4">Identité Animée</span>
+                    </div>
+                </div>
+                <div class="motion-card" data-video="assets/video/intro.mp4" data-title-key="motion.v5">
+                    <video class="motion-video" muted loop playsinline preload="none" poster="assets/video/intro.jpg">
+                        <source src="assets/video/intro.mp4" type="video/mp4">
+                    </video>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="motion-label" data-i18n="motion.v5">Séquence d'Intro</span>
+                    </div>
+                </div>
+                <div class="motion-card" data-video="assets/video/brand_banner.mp4" data-title-key="motion.v6">
+                    <video class="motion-video" muted loop playsinline preload="none" poster="assets/video/brand_banner.jpg">
+                        <source src="assets/video/brand_banner.mp4" type="video/mp4">
+                    </video>
+                    <div class="motion-overlay">
+                        <span class="motion-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="motion-label" data-i18n="motion.v6">Bannière de Marque</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motion-cta-wrap">
+                <a href="https://portfolio-aisoluce.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">
+                    <span data-i18n="motion.cta">Voir le portfolio vidéo complet</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Asset Gallery Section -->
+    <section class="gallery3d-section" id="gallery3d">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="gallery3d.tag">// INTERACTIVE 3D GALLERY</div>
+                <h2 class="section-title" data-i18n="gallery3d.title">AI-Generated 3D Assets</h2>
+                <p class="section-subtitle" data-i18n="gallery3d.subtitle">Assets 3D créés avec l'IA (Tripo3D, Claude + Blender MCP). Cliquez sur un modèle pour l'explorer en 3D interactive : rotation, zoom et déplacement.</p>
+            </div>
+
+            <div class="gallery3d-layout">
+                <!-- 3D Model Viewer -->
+                <div class="viewer3d-container border-gradient" id="viewer3dContainer">
+                    <div class="viewer3d-header">
+                        <div class="viewer3d-title font-code">
+                            <span class="text-lime">▶</span> model_viewer.glb
+                        </div>
+                        <div class="viewer3d-controls">
+                            <span class="viewer3d-hint font-code" data-i18n="gallery3d.hint">Glisser: Rotation · Scroll: Zoom · Clic droit: Déplacer</span>
+                        </div>
+                    </div>
+                    <div class="viewer3d-canvas-wrapper" id="viewer3dCanvas">
+                        <div class="viewer3d-placeholder" id="viewer3dPlaceholder">
+                            <div class="placeholder-icon"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+                            <p data-i18n="gallery3d.placeholder">Sélectionnez un asset ci-dessous pour charger le modèle 3D interactif</p>
+                        </div>
+                        <div class="viewer3d-loading" id="viewer3dLoading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <p class="font-code" data-i18n="gallery3d.loading">Chargement du modèle 3D...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnail Grid -->
+                <div class="gallery3d-thumbnails">
+                    <div class="thumb3d-card active" data-model="assets/3d/sofa.glb" data-name="Sofa Design">
+                        <img src="assets/3d/sofa_preview.webp" alt="Sofa 3D" class="thumb3d-img" loading="lazy">
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Sofa Design</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/coffee_table.glb" data-name="Coffee Table">
+                        <img src="assets/3d/coffee_table_preview.webp" alt="Coffee Table 3D" class="thumb3d-img" loading="lazy">
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Coffee Table</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/floor_lamp.glb" data-name="Floor Lamp">
+                        <img src="assets/3d/floor_lamp_preview.webp" alt="Floor Lamp 3D" class="thumb3d-img" loading="lazy">
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Floor Lamp</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/chair_ch25.glb" data-name="Oak Chair CH25">
+                        <img src="assets/3d/chair_ch25_preview.webp" alt="Chair CH25 3D" class="thumb3d-img" loading="lazy">
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Oak Chair CH25</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/head+with+beanie+3d+model.glb" data-name="Head · Beanie">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Head · Beanie</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/female+head+3d+model.glb" data-name="Female Head">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Female Head</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/bearded+head+3d+model.glb" data-name="Bearded Head">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Bearded Head</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/human+head+3d+model.glb" data-name="Human Head">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Human Head</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/superhero+character+3d+model.glb" data-name="Superhero">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Superhero</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                    <div class="thumb3d-card" data-model="assets/3d/robotic+arms+3d+model.glb" data-name="Robotic Arms">
+                        <div class="thumb3d-placeholder" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="thumb3d-info">
+                            <span class="thumb3d-name">Robotic Arms</span>
+                            <span class="thumb3d-badge font-code">GLB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Render Showcase (click to open fullscreen) -->
+            <div class="renders3d-showcase">
+                <h3 class="renders3d-title" data-i18n="gallery3d.renders_title">Rendus 3D : équipement &amp; lifestyle</h3>
+                <div class="renders3d-grid">
+                    <div class="render3d-card border-gradient" data-full="assets/3d/render_helmet_breakdown.jpg" data-caption-key="gallery3d.r4" tabindex="0" role="button">
+                        <img src="assets/3d/render_helmet_breakdown.jpg" alt="Tactical Helmet Technical Breakdown" class="render3d-img" loading="lazy">
+                        <span class="render3d-zoom" aria-hidden="true">⤢</span>
+                        <div class="render3d-overlay">
+                            <span class="render3d-label" data-i18n="gallery3d.r4">Casque tactique : décomposition technique</span>
+                            <span class="render3d-tech font-code">Game Asset → 4K PBR → LODs</span>
+                        </div>
+                    </div>
+                    <div class="render3d-card border-gradient" data-full="assets/3d/render_salon_lifestyle.jpg" data-caption-key="gallery3d.r5" tabindex="0" role="button">
+                        <img src="assets/3d/render_salon_lifestyle.jpg" alt="Designer Salon Lifestyle Render" class="render3d-img" loading="lazy">
+                        <span class="render3d-zoom" aria-hidden="true">⤢</span>
+                        <div class="render3d-overlay">
+                            <span class="render3d-label" data-i18n="gallery3d.r5">Salon design : rendu lifestyle</span>
+                            <span class="render3d-tech font-code">Higgsfield → Tripo3D → GLB</span>
+                        </div>
+                    </div>
+                    <div class="render3d-card border-gradient" data-full="assets/3d/render_chair_lifestyle.jpg" data-caption-key="gallery3d.r6" tabindex="0" role="button">
+                        <img src="assets/3d/render_chair_lifestyle.jpg" alt="Paper-Cord Chair Lifestyle Render" class="render3d-img" loading="lazy">
+                        <span class="render3d-zoom" aria-hidden="true">⤢</span>
+                        <div class="render3d-overlay">
+                            <span class="render3d-label" data-i18n="gallery3d.r6">Chaise paper-cord : lifestyle</span>
+                            <span class="render3d-tech font-code">Reference → Tripo3D → Staged</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo"><span class="logo-accent">></span> AISOLUCE</span>
+                <p data-i18n="footer.tagline">AI-First Engineering &amp; Creative Technology.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#console" data-i18n="nav.terminal">Terminal</a>
+                <a href="#dashboard" data-i18n="nav.bots">Bots</a>
+                <a href="#solutions" data-i18n="nav.saas">SaaS</a>
+                <a href="#motion" data-i18n="nav.motion">Motion Design</a>
+            </div>
+            <div class="footer-copy">
+                &copy; <span id="footerYear">2026</span> AISOLUCE. <span data-i18n="footer.copy">Tous droits réservés.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Motion Design Lightbox -->
+    <div class="motion-lightbox" id="motionLightbox" aria-hidden="true">
+        <div class="motion-lightbox-backdrop" id="motionLightboxBackdrop"></div>
+        <div class="motion-lightbox-inner">
+            <button class="motion-lightbox-close" id="motionLightboxClose" type="button" aria-label="Close">&times;</button>
+            <video class="motion-lightbox-video" id="motionLightboxVideo" controls playsinline></video>
+            <div class="motion-lightbox-title" id="motionLightboxTitle"></div>
+        </div>
+    </div>
+
+    <!-- 3D Render Image Lightbox -->
+    <div class="img-lightbox" id="imgLightbox" aria-hidden="true">
+        <div class="img-lightbox-backdrop" id="imgLightboxBackdrop"></div>
+        <div class="img-lightbox-inner">
+            <button class="img-lightbox-close" id="imgLightboxClose" type="button" aria-label="Close">&times;</button>
+            <img class="img-lightbox-img" id="imgLightboxImg" alt="">
+            <div class="img-lightbox-caption" id="imgLightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="i18n.js?v=3"></script>
+    <script src="app.js?v=2"></script>
+    <script type="module" src="viewer3d.js"></script>
+</body>
+</html>

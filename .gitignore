@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+# Claude Code
+.claude/
+# Node (not used at runtime)
+node_modules/
+# Heavy binary assets (see live demo) to keep the repo light
+*.glb
+*.mp4
+# Logs / temp
+*.log
+*.tmp
+
+# Personal certificate (kept on the live site + CV, not in the code repo)
+Certificat_Claude.pdf
