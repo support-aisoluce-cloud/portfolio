@@ -1,28 +1,70 @@
-# AISOLUCE : AI-First Vibe Coding Portfolio
+# AISOLUCE — AI-First Vibe Coding Portfolio
 
-Live demo: https://aisoluce-vibecode-portfolio.netlify.app/
+> A single-page engineer portfolio with a Three.js 3D gallery, a 6-language i18n engine, an interactive terminal and an MCP diagram — built with **zero frameworks, zero build step, zero runtime dependencies**.
 
-A dependency-free, single-page portfolio by Kylian Stomp (AISOLUCE), AI-first full-stack engineer. No framework, no build step: just HTML, CSS and vanilla JavaScript.
+**Live:** https://aisoluce-vibecode-portfolio.netlify.app/
 
-## Highlights
-- Hand-rolled i18n engine, 6 languages (FR, EN, ZH, RU, ES, PT), no library
-- Interactive 3D gallery with Three.js (GLTF + Meshopt, loaded on demand)
-- Autonomous agent systems showcase (multi-agent pipelines with a verification gate)
-- Interactive terminal, MCP diagram, motion-design gallery, animated dropdown menu
-- Fully responsive and dark, zero runtime dependencies (Three.js via CDN importmap)
+Just `index.html`, `style.css` and a handful of vanilla `.js` files. No React, no bundler, no `node_modules` — everything you can do with the platform, done with the platform.
 
-## Stack
-HTML, CSS, vanilla JavaScript, Three.js (importmap CDN). No bundler, no node_modules.
+## The constraint, and why it's the point
+
+The interesting part of this project is the self-imposed rule: **no framework and no build tooling**. Every feature that a typical portfolio reaches for a library to solve is instead hand-engineered against the browser's own APIs. That constraint is the demonstration — it shows what the vanilla platform actually gives you and forces clean, dependency-free solutions:
+
+- **i18n without an i18n library** — a hand-rolled engine drives 6 languages (FR, EN, ZH, RU, ES, PT) off `data-i18n` attributes, including HTML-bearing strings and input placeholders. No `i18next`, no runtime framework.
+- **3D without a scene framework** — Three.js loads on demand via a native `<script type="importmap">` (CDN, no bundler) to render an interactive GLTF gallery with Meshopt-compressed assets.
+- **Interactivity without a UI framework** — the terminal emulator, MCP connector diagram (with live SVG connector lines), motion-design gallery and animated navigation are all plain DOM + event listeners.
+- **No build step** — the repo is served exactly as written. `python -m http.server` is the entire toolchain.
+
+## Modules
+
+```
+index.html ── page shell, semantic sections, importmap
+   │
+   ├── style.css ───────── responsive dark design system, motion/animation
+   │
+   ├── i18n.js ─────────── hand-built i18n engine
+   │                       6 languages · data-i18n / data-i18n-html / -placeholder
+   │
+   ├── app.js ──────────── interactive modules (vanilla DOM):
+   │      ├─ terminal emulator ── command parser + typed responses + mock logs
+   │      ├─ MCP diagram ──────── clickable nodes, live SVG connector lines, code panels
+   │      ├─ motion gallery ───── motion-design showcase
+   │      ├─ animated nav ─────── dropdown menu + scroll progress bar
+   │      └─ scroll/reveal ────── on-scroll animations
+   │
+   └── viewer3d.js ─────── Three.js GLTF gallery (importmap CDN, Meshopt,
+                           lazy-loaded so 3D never blocks first paint)
+```
+
+## Tech stack
+
+| Concern | Choice |
+|---------|--------|
+| Markup | Semantic HTML5, single page |
+| Styling | Hand-written CSS — responsive, dark, motion design (no Tailwind, no preprocessor) |
+| Logic | Vanilla JavaScript (ES modules), no framework |
+| i18n | Custom engine, 6 languages, attribute-driven |
+| 3D | Three.js via native `importmap` (CDN), GLTF + Meshopt, loaded on demand |
+| Build | **None** — files are served as-is |
+| Runtime deps | **None** bundled (Three.js pulled from CDN at runtime) |
+| Hosting | Netlify (static) |
 
 ## Run locally
-```
-python -m http.server 8000
-```
-Then open http://localhost:8000
 
-Heavy 3D (.glb) and video (.mp4) assets are not committed to keep the repo light. See the live demo for the full experience.
+No install, no build:
+
+```bash
+python -m http.server 8000
+# then open http://localhost:8000
+```
+
+Any static file server works (`npx serve`, `php -S`, etc.) — there is nothing to compile.
+
+Heavy binary assets (`.glb` 3D models, `.mp4` motion clips) are intentionally kept out of the repo to keep it light; they're git-ignored. The [live demo](https://aisoluce-vibecode-portfolio.netlify.app/) has the full experience including 3D and video.
 
 ## Author
-Kylian Stomp, AISOLUCE
+
+**Kylian Stomp** — AI-first full-stack engineer (AISOLUCE)
+
 - Portfolio: https://aisoluce-vibecode-portfolio.netlify.app/
 - LinkedIn: https://www.linkedin.com/in/kylian-stomp-a76b7b3ab
