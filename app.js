@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   • <span class="cmd-highlight">vapi</span>        - Assistants d'appels téléphoniques IA temps-réel (Python)
   • <span class="cmd-highlight">polymarket</span>  - Bot d'arbitrage de portefeuilles de prédictions (Web3 API)
   • <span class="cmd-highlight">mcp</span>         - Configuration des MCPs financiers
-  • <span class="cmd-highlight">redteam</span>     - Agent prompt injection (8/8 Gandalf)
+  • <span class="cmd-highlight">redteam</span>     - Agent prompt injection (7 niveaux Gandalf)
   • <span class="cmd-highlight">whoami</span>      - Qui est Kylian (profil &amp; stack)
   • <span class="cmd-highlight">contact</span>     - Me joindre (email &amp; liens)
   • <span class="cmd-highlight">clear</span>       - Effacer la console`,
@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 [AGENT] LLM generates, runs and iterates injection payloads
 - L1-L6 : guardrails defeated
 - L7    : secret extracted
-- L8    : Gandalf the White bypassed
-[RESULT] <span class="text-lime">8/8 passwords extracted. Pipeline validated.</span>`,
+[RESULT] <span class="text-lime">7/7 passwords extracted. Pipeline validated.</span>`,
 
         vapi: `<span class="cmd-highlight">Vapi.ai Voice Agent Orchestrator</span>
 ------------------------------------------------------------
