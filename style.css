@@ -382,6 +382,7 @@ a {
 .nav.open .nav-link:nth-child(7) { transition-delay: 0.29s; }
 .nav.open .nav-link:nth-child(8) { transition-delay: 0.33s; }
 .nav.open .nav-link:nth-child(9) { transition-delay: 0.37s; }
+.nav.open .nav-link:nth-child(10) { transition-delay: 0.41s; }
 
 .nav-link::before {
     content: '';
@@ -2076,6 +2077,14 @@ section {
 
     /* Comfortable reading measure for body copy. */
     --measure: 62ch;
+
+    /* Syntax-highlight token colors (Code & Repos section). */
+    --tok-kw: #c5ff68;
+    --tok-fn: #9db8ff;
+    --tok-str: #b7e3a8;
+    --tok-num: #d8a0ff;
+    --tok-com: var(--text-faint);
+    --tok-punc: var(--text-soft);
 }
 
 /* --------------------------------------------------------------------------
@@ -2136,6 +2145,13 @@ section {
 .hero-terminal,
 .saas-preview-cc {
     box-shadow: var(--shadow-lg);
+}
+
+/* Hero terminal and the code window read as siblings: identical faint
+   top inner glow layered on top of the elevation shadow. */
+.hero-terminal,
+.code-window {
+    box-shadow: inset 0 1px 0 rgba(var(--primary-rgb), 0.06), var(--shadow-lg);
 }
 
 /* Card gradient surface: explicit multi-property transition + lime glow. */
@@ -2600,5 +2616,255 @@ section {
     }
     .thumb3d-placeholder {
         height: 84px;
+    }
+}
+
+/* ==========================================================================
+   K. CODE & REPOS SECTION + ADDITIVE POLISH
+   Appended after the Premium Upgrade Layer so nothing here is overridden.
+   ========================================================================== */
+
+/* ---- Additive polish ---------------------------------------------------- */
+
+/* Anchor jumps clear the fixed header. */
+section[id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+/* Keyboard focus affordance for interactive elements (does not touch the
+   existing :focus handling). */
+button:focus-visible,
+a:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible,
+.repo-tab:focus-visible,
+.code-copy:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Small hairline motif under every section tag. */
+.section-tag {
+    position: relative;
+}
+.section-tag::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    margin-top: 8px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+/* Respect reduced-motion for the always-on decorative keyframes. */
+@media (prefers-reduced-motion: reduce) {
+    .cursor,
+    .pulse-indicator,
+    .dot-sim,
+    .pipe-arrow,
+    [class*="typed"],
+    .prompt-active .cursor {
+        animation: none !important;
+    }
+}
+
+/* ---- Code & Repos layout ------------------------------------------------ */
+
+.code-section {
+    padding: 100px 0;
+}
+
+.code-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Tab list (desktop: vertical rail on the left). */
+.code-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.repo-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.repo-tab:hover {
+    border-color: rgba(var(--primary-rgb), 0.35);
+    background: rgba(var(--primary-rgb), 0.04);
+}
+
+.repo-tab.active {
+    border-color: rgba(var(--primary-rgb), 0.5);
+    background: rgba(var(--primary-rgb), 0.07);
+    color: var(--text);
+}
+
+.repo-tab-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-faint);
+    flex-shrink: 0;
+    transition: background 0.25s var(--ease);
+}
+.repo-tab.active .repo-tab-dot {
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
+}
+
+.repo-tab-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.repo-tab-lang {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    flex-shrink: 0;
+}
+
+/* Terminal-framed code window. */
+.code-window {
+    background-color: var(--bg-terminal);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.code-body {
+    background-color: var(--bg-terminal);
+    overflow-x: auto;
+    padding: 18px 20px;
+}
+
+.code-pre {
+    margin: 0;
+    counter-reset: codeline;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text);
+}
+
+.code-pre code {
+    font-family: inherit;
+}
+
+/* Each line gets a left line-number gutter via a CSS counter. */
+.code-line {
+    display: block;
+    white-space: pre;
+    position: relative;
+    padding-left: 42px;
+}
+.code-line::before {
+    counter-increment: codeline;
+    content: counter(codeline);
+    position: absolute;
+    left: 0;
+    width: 30px;
+    text-align: right;
+    color: var(--text-faint);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Token colors. */
+.tok-kw   { color: var(--tok-kw); font-weight: 500; }
+.tok-fn   { color: var(--tok-fn); }
+.tok-str  { color: var(--tok-str); }
+.tok-num  { color: var(--tok-num); }
+.tok-com  { color: var(--tok-com); font-style: italic; }
+.tok-punc { color: var(--tok-punc); }
+
+/* Rationale line (styled like .auto-example). */
+.code-rationale {
+    margin: 0 20px 16px;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--primary);
+    background: rgba(var(--primary-rgb), 0.05);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #cbd2d9;
+}
+
+.code-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px 18px;
+    flex-wrap: wrap;
+}
+
+.code-copy {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 9px 16px;
+    cursor: pointer;
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.code-copy:hover {
+    border-color: rgba(var(--primary-rgb), 0.4);
+    color: var(--text);
+}
+.code-copy.copied {
+    border-color: rgba(var(--primary-rgb), 0.6);
+    color: var(--primary);
+}
+
+/* Mobile: tabs become a horizontal scroll-snap strip above the window. */
+@media (max-width: 768px) {
+    .code-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .code-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 8px;
+        padding-bottom: 4px;
+    }
+    .repo-tab {
+        flex: 0 0 auto;
+        width: auto;
+        scroll-snap-align: start;
+    }
+    .code-pre {
+        font-size: 12px;
+    }
+    .code-line {
+        padding-left: 34px;
+    }
+    .code-line::before {
+        width: 24px;
     }
 }

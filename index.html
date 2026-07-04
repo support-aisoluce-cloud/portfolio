@@ -35,7 +35,7 @@
     }
     </script>
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <!-- Top Progress Bar -->
@@ -48,6 +48,7 @@
                 <span class="logo-accent">></span> AISOLUCE
             </a>
             <nav class="nav" id="primaryNav">
+                <a href="#code" class="nav-link" data-i18n="nav.code">Code &amp; Repos</a>
                 <a href="#proof" class="nav-link" data-i18n="nav.proof">Preuves</a>
                 <a href="#automations" class="nav-link" data-i18n="nav.auto">Automatisations</a>
                 <a href="#console" class="nav-link" data-i18n="nav.terminal">Terminal</a>
@@ -168,6 +169,24 @@
                 <div class="terminal-footer">
                     <input type="text" id="terminalInput" placeholder="Entrez une commande (ex: stats, saas, automation)..." data-i18n-placeholder="terminal.placeholder" autocomplete="off">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code & Repos Section -->
+    <section class="code-section reveal" id="code">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="code.tag">// CODE &amp; REPOS</div>
+                <h2 class="section-title" data-i18n="code.title">Le code, pas juste les captures d'écran</h2>
+                <p class="section-subtitle" data-i18n="code.subtitle">Six décisions techniques réelles, extraites de mes dépôts. Cliquez sur un repo pour lire l'extrait.</p>
+            </div>
+
+            <div class="code-layout">
+                <!-- Tab list (left on desktop, scroll-snap strip on mobile) -->
+                <div class="code-tabs" id="codeTabs" role="tablist" aria-label="Repositories"></div>
+                <!-- Terminal-framed code window (rendered by code.js) -->
+                <div class="code-window" id="codeWindow"></div>
             </div>
         </div>
     </section>
@@ -1008,8 +1027,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="i18n.js?v=3"></script>
-    <script src="app.js?v=2"></script>
+    <script src="i18n.js?v=4"></script>
+    <script src="app.js?v=3"></script>
+    <script src="code.js?v=1"></script>
     <script type="module" src="viewer3d.js"></script>
 </body>
 </html>
