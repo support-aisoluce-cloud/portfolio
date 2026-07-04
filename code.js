@@ -19,11 +19,11 @@
        --------------------------------------------------------------------- */
     var SNIPPETS = [
         {
-            repo: 'intelligence-pipeline',
+            repo: 'multi-agent-research',
             file: 'intelligence/gate.py',
             lang: 'python',
             langLabel: 'PYTHON',
-            url: 'https://github.com/support-aisoluce-cloud/intelligence-pipeline/blob/main/intelligence/gate.py',
+            url: 'https://github.com/support-aisoluce-cloud/multi-agent-research/blob/main/intelligence/gate.py',
             code:
 '_SYSTEM = """You are an independent verification gate in a multi-agent intelligence pipeline.\n' +
 'Assess whether the parallel research findings are consistent, well-sourced, and reliable.\n' +
@@ -103,11 +103,11 @@
 '}'
         },
         {
-            repo: 'yt-agent-studio',
+            repo: 'youtube-agent-studio',
             file: '.claude/agents/idea-scout.md',
             lang: 'markdown',
             langLabel: 'MARKDOWN',
-            url: 'https://github.com/support-aisoluce-cloud/yt-agent-studio/blob/main/.claude/agents/idea-scout.md',
+            url: 'https://github.com/support-aisoluce-cloud/youtube-agent-studio/blob/main/.claude/agents/idea-scout.md',
             code:
 '---\n' +
 'name: idea-scout\n' +
@@ -156,11 +156,11 @@
 '}'
         },
         {
-            repo: 'pixa-gandalf',
+            repo: 'gandalf-redteam-agent',
             file: 'agent/tactic_scores.py',
             lang: 'python',
             langLabel: 'PYTHON',
-            url: 'https://github.com/support-aisoluce-cloud/pixa-gandalf/blob/main/agent/tactic_scores.py',
+            url: 'https://github.com/support-aisoluce-cloud/gandalf-redteam-agent/blob/main/agent/tactic_scores.py',
             code:
 'def rank(self, target_id: str, candidates: list[str], top_n: int = 5) -> list[tuple[str, float]]:\n' +
 '    """Rank tactics by Wilson lower-bound on win rate. Unseen tactics get a\n' +
